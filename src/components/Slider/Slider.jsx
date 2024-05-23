@@ -7,18 +7,21 @@ import rightChevron from "../../assets/right-arrow.svg";
 const Slider = () => {
   const [sliderIndex, setSliderIndex] = useState(1);
 
-  function nextSlide(newIndex) {
-    setSliderIndex(sliderIndex + 1);
-    if (sliderIndex > sliderData.length) {
-      setSliderIndex(1);
+  function nextSlide() {
+    let newIndex = sliderIndex + 1;
+    if (newIndex >= sliderData.length) {
+      newIndex = 1;
     }
+    setSliderIndex(newIndex);
   }
 
   function previousSlide() {
-    setSliderIndex(sliderIndex - 1);
-  }
-  if (sliderIndex < 1) {
-    setSliderIndex(sliderData.length);
+    let newIndex = sliderIndex - 1;
+
+    if (newIndex < 1) {
+      newIndex = sliderData.length;
+    }
+    setSliderIndex(newIndex);
   }
 
   return (
