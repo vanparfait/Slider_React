@@ -44,7 +44,7 @@ const Slider = () => {
         </p>
         <img
           src={`./images/img-${sliderIndex}.jpg`}
-          alt={description}
+          alt="jordan"
           className="slider-img"
         />
         <button
