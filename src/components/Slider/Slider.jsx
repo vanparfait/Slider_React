@@ -6,7 +6,6 @@ import rightChevron from "../../assets/right-arrow.svg";
 
 const Slider = () => {
   const [sliderIndex, setSliderIndex] = useState(1);
-  const [isPause, setIsPause] = useState(false);
 
   function nextSlide() {
     let newIndex = sliderIndex + 1;
@@ -25,21 +24,12 @@ const Slider = () => {
     setSliderIndex(newIndex);
   }
 
-  // const startSlider = () => {
-  //   setIsPause(false);
-  // };
-  // const pauseSlider = () => {
-  //   setIsPause(true);
-  // };
-
   useEffect(() => {
-    if (!isPause) {
-      const interval = setInterval(() => {
-        nextSlide();
-      }, 3000); // Change slide every 3 seconds
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000); // Change slide every 3 seconds
 
-      return () => clearInterval(interval); // Clear interval on component unmount
-    }
+    return () => clearInterval(interval); // Clear interval on component unmount
   }, [sliderIndex]); // Dependency array includes sliderIndex to reset interval on slide change
 
   return (
@@ -54,7 +44,7 @@ const Slider = () => {
         </p>
         <img
           src={`./images/img-${sliderIndex}.jpg`}
-          alt="gggggg"
+          alt={description}
           className="slider-img"
         />
         <button
